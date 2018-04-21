@@ -256,6 +256,7 @@ html, body {
 }
 
 .tab-content {
+    width: 570px;
 	margin-top: 50px;
 	display: flex;
 	justify-content: space-between;
@@ -265,7 +266,13 @@ html, body {
 	height: 270px;
 	width: 270px;
 	position: relative;
+	float: left;
 }
+
+.tab-content .block {
+		margin-right: 30px;
+}
+
 .tab-content a .text {
 	display: none;
 	height: 268px;
