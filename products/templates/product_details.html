@@ -9,7 +9,7 @@
         <div class="slider-control">
             {% for model in params.diff_models %}
                 <div class="block">
-                    <a href="#"><img src="{% static "img/"%}{{ model }}" alt="">
+                    <a href="#"><img src="{% static "img/"%}{{ model }}" alt="{{ params.product_name }}">
                         <div class="text"></div>
                     </a>
                 </div>

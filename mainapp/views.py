@@ -45,7 +45,6 @@ def index_view(request):
 
 
 def contact_view(request):
-    context = {}
     locations = [
         {'city': 'Москва',
          'phone': '555-55-55',

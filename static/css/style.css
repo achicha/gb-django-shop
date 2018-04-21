@@ -764,6 +764,12 @@ td:first-child {
 	font-weight: 700;
 }
 
+.iframe {
+    text-align: center;
+}
+.hero h1 {
+    text-align: center;
+}
 .tab-control {
 	text-transform: uppercase;
 	list-style-type: none;
