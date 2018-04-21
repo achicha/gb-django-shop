@@ -41,4 +41,24 @@ def index_view(request):
 
 
 def contact_view(request):
-    return render(request, 'contact.html', {})
+    context = {}
+    locations = [
+        {'city': 'Москва',
+         'phone': '555-55-55',
+         'email': 'info@geekshop.ru',
+         'address': 'В пределах МКАД'
+         },
+        {'city': 'Тюмень',
+         'phone': '555-55-55',
+         'email': 'info@geekshop.ru',
+         'address': 'за МКАДом'
+         },
+        {'city': 'Рязань',
+         'phone': '555-55-55',
+         'email': 'info@geekshop.ru',
+         'address': 'за МКАДом'
+         }
+    ]
+    context['locations'] = locations
+
+    return render(request, 'contact.html', context)

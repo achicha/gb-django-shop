@@ -41,7 +41,6 @@ def products_view(request, product_vendor_code=None):
     try:
         context.update(product_details[product_vendor_code])
     except Exception:
-        print('xz')
         context.update(product_details[1])
 
     # upload related products from DB
