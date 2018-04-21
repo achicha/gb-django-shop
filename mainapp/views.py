@@ -1,3 +1,5 @@
+import datetime
+
 from django.shortcuts import render
 
 # Create your views here.
@@ -35,7 +37,9 @@ def index_view(request):
             'alt': 'продукт 4'
         }
     ]
-    content = {'title': title, 'popular_products': popular_products}
+    content = {'title': title,
+               'popular_products': popular_products,
+               'visit_date': datetime.datetime.now()}
 
     return render(request, 'index.html', content)
 
@@ -59,6 +63,7 @@ def contact_view(request):
          'address': 'за МКАДом'
          }
     ]
-    context['locations'] = locations
+    context = {'locations': locations,
+               'visit_date': datetime.datetime.now()}
 
     return render(request, 'contact.html', context)

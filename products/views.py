@@ -1,3 +1,5 @@
+import datetime
+
 from django.shortcuts import render
 
 
@@ -64,6 +66,7 @@ def products_view(request, product_vendor_code=None):
             'alt': 'img'
         }
     ]
-    context.update({'related_products': related_products})
+    context.update({'related_products': related_products,
+                    'visit_date': datetime.datetime.now()})
 
     return render(request, 'products.html', context)

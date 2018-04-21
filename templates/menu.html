@@ -1,5 +1,7 @@
 <div class="header clearfix">
     <a href="{% url 'index' %}" class="logo"></a>
+    <span class="visit-time">{{ visit_date|date:"l, j F, Y, H:i" }}</span>
+
     <ul class="menu">
         <li><a href="{% url 'index' %}">домой</a></li>
         <li><a href="{% url 'products' %}" class="active">продукты</a></li>

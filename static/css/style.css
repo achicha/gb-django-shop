@@ -38,6 +38,10 @@ html, body {
 	float: left;
 }
 
+.visit-time {
+    margin-top: 67px;
+    float: right;
+}
 .menu {
 	list-style-type: none;
 	margin-top: 67px;
