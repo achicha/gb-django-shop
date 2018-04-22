@@ -1,4 +1,6 @@
 
+[![Build Status](https://travis-ci.org/achicha/gbdjangoshop.svg?branch=master)](https://travis-ci.org/achicha/gbdjangoshop)
+
 run:
 
     # local  django server
