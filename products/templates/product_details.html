@@ -1,16 +1,21 @@
 {% load static %}
+{#{% load thumbnail %}#}
 
 
 <div class="details-products">
     <div class="details-slider">
         <div class="slider-product">
-            <img src="{{ params.images.0.image.url }}" >
+            <a href="{{ params.images.0.image.url }}"><img src="{{ params.images.0.image.url }}" ></a>
         </div>
         <div class="slider-control">
 
             {% for model in params.images %}
                 <div class="block">
-                    <a href="#"><img src="{{ model.image.url }}" alt="{{ params.name }}">
+{#                    {% thumbnail model.image.url "100x100" as im %}#}
+{#                        <img src="{{ im.url }}">#}
+{#                    {% endthumbnail %}#}
+
+                    <a href="{{ model.image.url }}"><img src="{{ model.image.url }}" alt="{{ params.name }}" width="70" height="70">
                         <div class="text"></div>
                     </a>
                 </div>

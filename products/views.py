@@ -85,6 +85,7 @@ def products_view(request, product_vendor_code=None):
         context.update({'product_params': ctx})
 
     # upload related products from DB
+    # todo get products from related category from DB
     related_products = [
         {
             'image': 'product-11.jpg',
