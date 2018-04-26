@@ -4,12 +4,13 @@
 <div class="details-products">
     <div class="details-slider">
         <div class="slider-product">
-            <img src="{% static "img/" %}{{ params.picture }}" >
+            <img src="{{ params.images.0.image.url }}" >
         </div>
         <div class="slider-control">
-            {% for model in params.diff_models %}
+
+            {% for model in params.images %}
                 <div class="block">
-                    <a href="#"><img src="{% static "img/"%}{{ model }}" alt="{{ params.product_name }}">
+                    <a href="#"><img src="{{ model.image.url }}" alt="{{ params.name }}">
                         <div class="text"></div>
                     </a>
                 </div>
@@ -19,16 +20,14 @@
     </div>
 
     <div class="description">
-        <h3 class="big-bold">{{ params.product_name }}</h3>
-        <h3 class="red">{{ params.red }}</h3>
+        <h3 class="big-bold">{{ params.name }}</h3>
+        <h3 class="red">{{ params.short_desc }}</h3>
         <p class="price"> {{ params.price }} <span>руб</span></p>
         <a href="#" class="red-button">
             заказать <i class="fa fa-chevron-right" aria-hidden="true"></i>
         </a>
         <div class="description-text">
-            {% for p in params.description %}
-                <p>{{ p }}</p>
-            {% endfor %}
+            <p>{{ params.description }}</p>
         </div>
     </div>
 </div>
