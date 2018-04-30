@@ -1,6 +1,7 @@
 import datetime
 
 from django.shortcuts import render
+from django.core.exceptions import ObjectDoesNotExist
 from .models import ProductCategory, Product, ProductImage
 
 
@@ -76,8 +77,8 @@ def products_view(request, product_vendor_code=None):
         ctx.update({'images': imgs})
         context.update({'product_params': ctx})
 
-    except Exception:
-        p = Product.objects.get(pk=1)
+    except ObjectDoesNotExist:
+        p = Product.objects.last()
         imgs = ProductImage.objects.filter(product_id=p.id)
         ctx = {}
         ctx.update(p.__dict__)

@@ -44,5 +44,5 @@ def load_products():
         prod.save()
         # add image to related product
         img = ProductImage(product_id=prod.id,
-                           image=p['image'])
+                           image='products_images/' + p['image'])
         img.save()
