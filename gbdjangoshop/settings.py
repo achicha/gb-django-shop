@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mainapp',
     'products',
+    'authapp',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +130,6 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # media files
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+# new user model, instead of standard auth
+AUTH_USER_MODEL = 'authapp.ShopUser'
