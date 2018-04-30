@@ -4,7 +4,7 @@
 
     <ul class="login-menu">
         {% if user.is_authenticated %}
-            <li><a href="{% url 'auth:edit' %}" class="user-name">{{ user.first_name|default:'Пользователь' }}</a></li>
+            <li><a href="{% url 'auth:edit' %}" class="user-name">{{ user.first_name|default:'user' }}</a></li>
             <li><a href="{% url 'auth:logout' %}" class="auth">Logout</a></li>
         {% else %}
             <li><a href="{% url 'auth:login' %}" class="auth">Login</a></li>
