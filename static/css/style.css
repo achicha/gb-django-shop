@@ -11,7 +11,28 @@ body {
 html, body {
 	height: 100%;
 }
+/*login*/
+.login {
+    background: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 25px;
+    overflow: hidden;
+    width: 28em;
+    min-width: 500px;
+    margin: 100px auto;
+       
+    position: relative;
+    display: block;
+}
 
+.login .head {
+    margin: 25px auto;
+}
+
+.login form {
+    margin-bottom: 30px;
+}
+/*container*/
 .clr {
 	height: 384px;
 }
@@ -29,7 +50,7 @@ html, body {
 	padding-right: 211px;
 	position: relative;
 }
-
+/*menu*/
 .logo {
 	background-image: url('/static/img/logo.png');
 	margin-top: 63px;
@@ -38,19 +59,15 @@ html, body {
 	float: left;
 }
 
-.visit-time {
-    margin-top: 67px;
-    float: right;
-}
-.menu {
+.menu, .right-menu {
 	list-style-type: none;
 	margin-top: 67px;
 	float: right;
 }
-.menu li {
+.menu li, .right-menu li {
 	float: left;
 }
-.menu a {
+.menu a{
 	color: #8c8c8c;
 	font-size: 14px;
 	font-weight: 700;
@@ -59,39 +76,41 @@ html, body {
 	text-decoration: none;
 	padding: 10px 13px;
 }
-.menu .active {
+.menu .active, .right-menu .active {
 	color: #212121;
 	font-weight: 700;
 	border-bottom: 3px solid #212121;
 }
-.menu a:hover {
+.menu a:hover, .right-menu a:hover {
 	color: #212121;
 	font-weight: 700;
 	border-bottom: 3px solid #212121;
 }
-.menu a:active {
+.menu a:active, .right-menu a:active {
 	color: #8c8c8c;
 	font-weight: 700;
 	border-bottom: 3px solid #212121;
 }
 
+.right-menu-element {
+    width: 23px;
+    height: 23px;
+    top: 63px;
+    position: absolute;
+}
 .search {
-	display: block;
-	width: 23px;
-	height: 23px;	
+    left: 1176px;
 	background-image: url('/static/img/search.png');
-	position: absolute;
-	top: 63px;
-	left: 1176px;
 }
 .basket {
-	display: block;
-	width: 23px;
-	height: 23px;	
+    left: 1210px;
 	background-image: url('/static/img/basket.png');
-	position: absolute;
-	top: 63px;
-	left: 1210px;
+}
+.visit-time {
+    left: 1310px;
+}
+.auth {
+    left: 1240px;
 }
 
 .clearfix:after {

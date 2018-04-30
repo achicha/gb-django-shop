@@ -1,14 +1,23 @@
 <div class="header clearfix">
-    <a href="{% url 'index' %}" class="logo"></a>
-    <span class="visit-time">{{ visit_date|date:"l, j F, Y, H:i" }}</span>
+    <a href="{% url 'main:index' %}" class="logo"></a>
+    <span class="visit-time menu">{{ visit_date|date:"l, j F, Y, H:i" }}</span>
 
     <ul class="menu">
-        <li><a href="{% url 'index' %}">домой</a></li>
-        <li><a href="{% url 'products' %}" class="active">продукты</a></li>
-        <li><a href="{% url 'contact' %}">контакты</a></li>
+        <li><a href="{% url 'main:index' %}">домой</a></li>
+        <li><a href="{% url 'products:products' %}" class="active">продукты</a></li>
+        <li><a href="{% url 'main:contact' %}">контакты</a></li>
 
     </ul>
-    <a href="#" class="search"></a>
-    <a href="#" class="basket"></a>
+
+    <ul class="right-menu">
+        <li><a href="#" class="search right-menu-element"></a></li>
+        <li><a href="#" class="basket right-menu-element"></a></li>
+         {% if user.is_authenticated %}
+            <li><a href="{% url 'auth:logout' %}" class="auth right-menu-element">Logout</a></li>
+        {% else %}
+            <li><a href="{% url 'auth:login' %}" class="auth right-menu-element">Login</a></li>
+        {% endif %}
+    </ul>
+
 </div>
 

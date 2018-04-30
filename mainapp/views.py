@@ -5,7 +5,7 @@ from django.shortcuts import render
 # Create your views here.
 
 
-def index_view(request):
+def index(request):
     title = 'Главная'
     popular_products = [
         {
@@ -44,7 +44,7 @@ def index_view(request):
     return render(request, 'index.html', content)
 
 
-def contact_view(request):
+def contact(request):
     locations = [
         {'city': 'Москва',
          'phone': '555-55-55',
