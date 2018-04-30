@@ -51,6 +51,11 @@ html, body {
 	position: relative;
 }
 /*menu*/
+.visit-time {
+    float: left;
+    margin-top: 67px;
+    padding-left: 10px;
+}
 .logo {
 	background-image: url('/static/img/logo.png');
 	margin-top: 63px;
@@ -59,15 +64,15 @@ html, body {
 	float: left;
 }
 
-.menu, .right-menu {
+.menu, .right-menu, .login-menu{
 	list-style-type: none;
 	margin-top: 67px;
 	float: right;
 }
-.menu li, .right-menu li {
+.menu li, .right-menu li, .login-menu li {
 	float: left;
 }
-.menu a{
+.menu a, .login-menu a{
 	color: #8c8c8c;
 	font-size: 14px;
 	font-weight: 700;
@@ -76,17 +81,17 @@ html, body {
 	text-decoration: none;
 	padding: 10px 13px;
 }
-.menu .active, .right-menu .active {
+.menu .active, .right-menu .active, .login-menu .active {
 	color: #212121;
 	font-weight: 700;
 	border-bottom: 3px solid #212121;
 }
-.menu a:hover, .right-menu a:hover {
+.menu a:hover, .right-menu a:hover, .login-menu a:hover {
 	color: #212121;
 	font-weight: 700;
 	border-bottom: 3px solid #212121;
 }
-.menu a:active, .right-menu a:active {
+.menu a:active, .right-menu a:active, .login-menu a:active {
 	color: #8c8c8c;
 	font-weight: 700;
 	border-bottom: 3px solid #212121;
@@ -95,24 +100,12 @@ html, body {
 .right-menu-element {
     width: 23px;
     height: 23px;
-    top: 63px;
-    position: absolute;
-}
-.search {
-    left: 1176px;
-	background-image: url('/static/img/search.png');
-}
-.basket {
-    left: 1210px;
-	background-image: url('/static/img/basket.png');
-}
-.visit-time {
-    left: 1310px;
-}
-.auth {
-    left: 1240px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
+
+/*other*/
 .clearfix:after {
 	content: "";
 	display: block;

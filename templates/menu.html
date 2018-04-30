@@ -1,22 +1,26 @@
 <div class="header clearfix">
     <a href="{% url 'main:index' %}" class="logo"></a>
-    <span class="visit-time menu">{{ visit_date|date:"l, j F, Y, H:i" }}</span>
+    <span class="visit-time">{{ visit_date|date:"l, j F, Y, H:i" }}</span>
 
-    <ul class="menu">
+    <ul class="login-menu">
+        {% if user.is_authenticated %}
+            <li><a href="{% url 'auth:edit' %}" class="user-name">{{ user.first_name|default:'Пользователь' }}</a></li>
+            <li><a href="{% url 'auth:logout' %}" class="auth">Logout</a></li>
+        {% else %}
+            <li><a href="{% url 'auth:login' %}" class="auth">Login</a></li>
+        {% endif %}
+    </ul>
+
+    <ul class="right-menu">
+        <li class="right-menu-element"><a href="#"><img src="/static/img/search.png" alt="search"></a></li>
+        <li class="right-menu-element"><a href="#"><img src="/static/img/basket.png" alt="basket"></a></li>
+    </ul>
+
+     <ul class="menu">
         <li><a href="{% url 'main:index' %}">домой</a></li>
         <li><a href="{% url 'products:products' %}" class="active">продукты</a></li>
         <li><a href="{% url 'main:contact' %}">контакты</a></li>
 
-    </ul>
-
-    <ul class="right-menu">
-        <li><a href="#" class="search right-menu-element"></a></li>
-        <li><a href="#" class="basket right-menu-element"></a></li>
-         {% if user.is_authenticated %}
-            <li><a href="{% url 'auth:logout' %}" class="auth right-menu-element">Logout</a></li>
-        {% else %}
-            <li><a href="{% url 'auth:login' %}" class="auth right-menu-element">Login</a></li>
-        {% endif %}
     </ul>
 
 </div>
