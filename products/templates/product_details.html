@@ -28,7 +28,7 @@
         <h3 class="big-bold">{{ params.name }}</h3>
         <h3 class="red">{{ params.short_desc }}</h3>
         <p class="price"> {{ params.price }} <span>руб</span></p>
-        <a href="#" class="red-button">
+        <a href="{% url 'basket:add' params.id %}" class="red-button">
             заказать <i class="fa fa-chevron-right" aria-hidden="true"></i>
         </a>
         <div class="description-text">
