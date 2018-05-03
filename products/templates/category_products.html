@@ -1,0 +1,28 @@
+{% load staticfiles %}
+
+
+
+
+<div class="products_list">
+    <div class="title clearfix">
+        <h2>Категория: "{{ category.name|title }}"</h2>
+    </div>
+    <br>
+    <div class="category-products clearfix">
+        {% for product in products %}
+            <div class="block">
+                <a href="{% url 'products:product_description' product.pk %}">
+                    <img src="{{ product.images.all.0.image.url }}" alt="{{ product.short_desc }}">
+                    <div class="text">
+                        <img src="{% static 'img/icon-hover.png' %}" alt="hover">
+                        <h4>{{ product.name }}</h4>
+                        <p>{{ product.description }} </p>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="clr"></div>
+
