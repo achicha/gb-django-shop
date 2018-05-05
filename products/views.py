@@ -17,16 +17,10 @@ def products(request, product_vendor_code=None, category_pk=None):
     # add basket
     if request.user.is_authenticated:
         basket = Basket.objects.filter(user=request.user)
-        total_price = sum([prod.quantity * Product.objects.filter(pk=prod.product_id)[0].price for prod in basket])
-        total_count_products = sum([prod.quantity for prod in basket])
     else:
         basket = []
-        total_price = 0
-        total_count_products = 0
 
-    context.update({'basket': basket,
-                    'total_price': total_price,
-                    'total_count_products': total_count_products})
+    context.update({'basket': basket})
 
     # if refer from main menu=products
     if not category_pk and not product_vendor_code:

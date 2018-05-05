@@ -6,7 +6,10 @@
         {% if user.is_authenticated %}
             <li><a href="{% url 'auth:edit' %}" class="user-name">{{ user.first_name|default:'user' }}</a></li>
             <li><a href="{% url 'auth:logout' %}" class="auth">Logout</a></li>
-            <li>{{ total_count_products }}={{ total_price }}</li>
+
+            {% if basket %}
+                {{ basket.0.total_cost|floatformat:0 }} руб ({{ basket.0.total_quantity }} шт)
+            {% endif %}
 
         {% else %}
             <li><a href="{% url 'auth:login' %}" class="auth">Login</a></li>
