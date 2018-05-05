@@ -1,6 +1,6 @@
 <div class="header clearfix">
     <a href="{% url 'main:index' %}" class="logo"></a>
-    <span class="visit-time">{{ visit_date|date:"l, j F, Y, H:i" }}</span>
+
 
     <ul class="login-menu">
         {% if user.is_authenticated %}
