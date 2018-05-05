@@ -7,7 +7,11 @@ from django.urls import reverse
 def login(request):
     title = 'Вход в систему'
     # get + post
-    login_form = ShopUserLoginForm(data=request.POST or None)  
+    login_form = ShopUserLoginForm(data=request.POST or None)
+
+    # find redirecting url
+    next_ = request.GET['next'] if 'next' in request.GET.keys() else ''
+
     if request.method == 'POST' and login_form.is_valid():
         username = request.POST['username']
         password = request.POST['password']
@@ -15,10 +19,12 @@ def login(request):
         user = auth.authenticate(username=username, password=password)
         if user and user.is_active:
             auth.login(request, user)
-            # перенаправление на index
+            # перенаправление на index or next url
+            if 'next' in request.POST.keys():
+                return HttpResponseRedirect(request.POST['next'])
             return HttpResponseRedirect(reverse('main:index'))
 
-    content = {'title': title, 'login_form': login_form}
+    content = {'title': title, 'login_form': login_form, 'next': next_}
     return render(request, 'login.html', content)
 
 

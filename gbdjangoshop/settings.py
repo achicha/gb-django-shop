@@ -136,3 +136,6 @@ MEDIA_URL = '/media/'
 
 # new user model, instead of standard auth
 AUTH_USER_MODEL = 'authapp.ShopUser'
+
+# redirect to this url when using @login_required decorator
+LOGIN_URL = '/auth/login/'
