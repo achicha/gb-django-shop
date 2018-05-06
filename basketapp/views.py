@@ -58,7 +58,7 @@ def basket_remove(request, pk):
         result = render_to_string('basket_list.html', content)
         return JsonResponse({'result': result})
     else:
-        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+        return HttpResponseRedirect(reverse('basket:view'))
 
 
 @login_required

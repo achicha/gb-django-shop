@@ -1,4 +1,5 @@
-window.onload = function () {
+$(document).ready(function() {
+    console.log(document);
     /*
     // можем получить DOM-объект меню через JS
     var menu = document.getElementsByClassName('menu')[0];
@@ -26,7 +27,7 @@ window.onload = function () {
     */
     
     // добавляем ajax-обработчик для обновления количества товара
-    $('.basket_list').on('click', 'input[type="number"]', function () {
+    $(document).on('click', 'input[type="number"]', function () {
         var target_href = event.target;
         var url_ = "/basket/edit/" + target_href.name + "/" + target_href.value + "/";
 
@@ -34,7 +35,8 @@ window.onload = function () {
             $.ajax({
                 url: url_,
                 success: function (data) {
-                    $('.basket_list').html(data.result);
+                    //$('.basket_list').html(data.result);
+                    $('.basket_list').load('/basket/ .basket_list ');
                     console.log('ajax done');
                 },
             });
@@ -44,20 +46,20 @@ window.onload = function () {
     });
 
     // remove product
-    $('.remove').on('click', function () {
+    $(document).on('click', '.remove', function () {
         var target_href = event.target;
         var url_ = "/basket/remove/" + target_href.value + '/';
 
         if (target_href) {
-            $.ajax({
+            jQuery.ajax({
                 url: url_,
-                success: function (data) {
-                    $('.basket_list').html(data.result);
+                success: function(data, status, xhr) {
+                    //$('.basket_list').html(data.result);
+                    $('.basket_list').load('/basket/ .basket_list ');
                     console.log('ajax done');
-                },
+                }
             });
-
         }
         event.preventDefault();
     });
-};
+});
