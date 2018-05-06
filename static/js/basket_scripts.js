@@ -42,5 +42,22 @@ window.onload = function () {
         }
         event.preventDefault();
     });
-    
-}
+
+    // remove product
+    $('.remove').on('click', function () {
+        var target_href = event.target;
+        var url_ = "/basket/remove/" + target_href.value + '/';
+
+        if (target_href) {
+            $.ajax({
+                url: url_,
+                success: function (data) {
+                    $('.basket_list').html(data.result);
+                    console.log('ajax done');
+                },
+            });
+
+        }
+        event.preventDefault();
+    });
+};
