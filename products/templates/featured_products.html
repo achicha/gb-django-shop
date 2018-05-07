@@ -1,0 +1,36 @@
+{% load staticfiles %}
+
+
+<div class="featured container">
+
+    <div class="featured-menu">
+    <ul>
+        {% for category in featured_categories %}
+            <li><a href="#">{{ category }}</a></li>
+        {% endfor %}
+    </ul>
+    </div>
+
+    <a class="explore" href="{% url 'products:category' %}">
+        показать все <img src="{% static "img/arrow.png" %}" alt="все товары">
+    </a>
+
+    <div class="clearfix"></div>
+
+    <div class="tab-content">
+       <div class="tab-content">
+        {% for product in featured_products %}
+            <div class="block">
+                <a href="{% url 'products:product_description' product.pk %}"><img width="270px" height="270px" src="{{ product.images.all.0.image.url }}" alt="{{ product.short_desc }}">
+                    <div class="text">
+                        <img src="{% static 'img/icon-hover.png' %}" alt="{{ product.short_desc }}">
+                        <h4>{{ product.name }}</h4>
+                        <p>{{ product.description }} </p>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+       </div>
+    </div>
+
+</div>

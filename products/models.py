@@ -18,6 +18,15 @@ class Product(models.Model):
     price = models.DecimalField(verbose_name='цена продукта', max_digits=8, decimal_places=2, default=0)
     quantity = models.PositiveIntegerField(verbose_name='количество на складе', default=0)
 
+    @staticmethod
+    def get_featured_products(category_id=None, filter_out=None, max_items=3):
+        """return total cost for user"""
+        if not category_id:
+            category_id = Product.objects.last().category_id
+        # todo filter out duplicate products
+        _items = Product.objects.filter(category_id=category_id)[:max_items]
+        return _items
+
     def __str__(self):
         return "{} ({})".format(self.name, self.category.name)
 

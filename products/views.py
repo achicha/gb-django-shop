@@ -36,7 +36,6 @@ def products(request, product_vendor_code=None, category_pk=None):
             cat_products = Product.objects.filter(category__id=category_pk).order_by('price')
 
         context.update({
-            'title': title,
             'category': category,
             'products': cat_products,
 
@@ -51,35 +50,14 @@ def products(request, product_vendor_code=None, category_pk=None):
         ctx = {}
         ctx.update(p.__dict__)
         ctx.update({'images': imgs})
-        context.update({'product_params': ctx})
-
+        context.update({'product_params': ctx, 'products': [p]})
 
     # upload related products from DB
-    # todo get products from related category from DB
-    related_products = [
-        {
-            'image': 'product-11.jpg',
-            'h4': 'Стул повышенного качества',
-            'p': 'Не оторваться.',
-            'alt': 'img',
-            'id': 2
-        },
-        {
-            'image': 'product-21.jpg',
-            'h4': 'Стул повышенного качества',
-            'p': 'Не оторваться.',
-            'alt': 'img',
-            'id': 3
-        },
-        {
-            'image': 'product-31.jpg',
-            'h4': 'Стул повышенного качества',
-            'p': 'Не оторваться.',
-            'alt': 'img',
-            'id': 4
-        }
-    ]
-    context.update({'related_products': related_products,
+    related_products = Product.get_featured_products(category_id=category_pk, filter_out=context['products'])
+
+    context.update({'title': title,
+                    'featured_categories': ['Похожие товары'],
+                    'featured_products': related_products,
                     'visit_date': datetime.datetime.now()})
 
     return render(request, 'products.html', context)
