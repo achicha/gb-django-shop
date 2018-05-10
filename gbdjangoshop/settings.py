@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'products',
     'authapp',
     'basketapp',
+    'adminapp',
 ]
 
 MIDDLEWARE = [
@@ -62,6 +63,7 @@ TEMPLATES = [
                  os.path.join(BASE_DIR, 'mainapp', 'templates'),
                  os.path.join(BASE_DIR, 'authapp', 'templates'),
                  os.path.join(BASE_DIR, 'basketapp', 'templates'),
+                 os.path.join(BASE_DIR, 'adminapp', 'templates'),
                  os.path.join(BASE_DIR, 'products', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {

@@ -18,6 +18,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('my-admin/', include('adminapp.urls', namespace='myadmin')),
     path('auth/', include('authapp.urls', namespace='auth')),
     path('products/', include('products.urls', namespace='products')),
     path('basket/', include('basketapp.urls', namespace='basket')),

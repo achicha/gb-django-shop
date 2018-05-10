@@ -22,6 +22,12 @@
     </ul>
 
      <ul class="menu">
+{#        {% if user.is_superuser %}#}
+        {% if user.is_authenticated %}
+            <li>
+                <a href="{% url 'myadmin:categories' %}">админка</a>
+            </li>
+        {% endif %}
         <li><a href="{% url 'main:index' %}" class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}">домой</a></li>
         <li><a href="{% url 'products:category' %}" class="{% if request.resolver_match.url_name == 'category' or request.resolver_match.url_name == 'product_description' %}active{% endif %}">продукты</a></li>
         <li><a href="{% url 'main:contact' %}" class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}">контакты</a></li>

@@ -1,0 +1,14 @@
+{% extends 'base_adminapp.html' %}
+{% load staticfiles %}
+
+{% block content %}
+    <div class="description">
+        <h3 class="big-bold">{{ object.name }}</h3>
+        <h3 class="red">{{ object.short_desc }}</h3>
+        <p class="price"> {{ object.price }} <span>руб</span></p>
+
+        <div class="description-text">
+            <p>{{ object.description }}</p>
+        </div>
+    </div>
+{% endblock %}
