@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import user_passes_test
 from django.shortcuts import HttpResponseRedirect
@@ -144,6 +145,7 @@ class ProductView(UserPassesTestMixin, ListView):
     model = Product
     template_name = 'products_base.html'
     success_url = reverse_lazy('myadmin:products')
+    paginate_by = 2
     fields = ('__all__')
 
     def test_func(self):
@@ -152,7 +154,23 @@ class ProductView(UserPassesTestMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+
+        # add title to context manager
         context['title'] = 'админка/продукты'
+
+        # paginate by page
+        list_products = Product.objects.filter(category=self.kwargs.get('pk'), is_active=1)
+        paginator = Paginator(list_products, self.paginate_by)
+        page = self.request.GET.get('page')
+
+        try:
+            file_exams = paginator.page(page)
+        except PageNotAnInteger:
+            file_exams = paginator.page(1)
+        except EmptyPage:
+            file_exams = paginator.page(paginator.num_pages)
+        context['current_page'] = file_exams
+
         return context
 
     def get_queryset(self):

@@ -14,7 +14,7 @@
 				</div>
 				<div class="category_actions">
 					<button>
-						<a href={% url 'myadmin:products' object.pk %}>товары категории</a>
+						<a href={% url 'myadmin:products' pk=object.pk page=1 %}>товары категории</a>
 					</button>
 					<button>
 						<a href={% url 'myadmin:category_update' object.pk %}>редактировать</a>
