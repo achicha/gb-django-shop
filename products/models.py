@@ -23,11 +23,13 @@ class Product(models.Model):
     @staticmethod
     def get_featured_products(category_id=None, filter_out=None, max_items=3):
         """return total cost for user"""
-        if not category_id:
-            category_id = Product.objects.last().category_id
+
         # todo filter out duplicate products
-        _items = Product.objects.filter(category_id=category_id)[:max_items]
-        return _items
+        if not category_id:
+            _items = Product.objects.all()
+        else:
+            _items = Product.objects.filter(category_id=category_id)
+        return _items[:max_items]
 
     def __str__(self):
         return "{} ({})".format(self.name, self.category.name)

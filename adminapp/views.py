@@ -85,7 +85,7 @@ def products(request, pk):
         'objects': products_list,
     }
 
-    return render(request, 'products.html', content)
+    return render(request, 'products_base.html', content)
 
 
 @user_passes_test(lambda u: u.is_superuser)
